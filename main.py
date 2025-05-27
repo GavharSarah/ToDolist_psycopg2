@@ -1,7 +1,7 @@
 
 from core.database_settings import execute_query
 from core.table_queries import initializing_tables
-
+from core.todo_operations import add_task, mark_task_complete, view_tasks
 
 def main():
     params = (12,)
@@ -12,3 +12,7 @@ def main():
 if __name__ == '__main__':
     initializing_tables()
     main()
+
+
+
+
