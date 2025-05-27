@@ -13,7 +13,7 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 
 DB_CONFIG = {
-    "database": "products",
+    "database": "TodoList",
     "user": DB_USER,
     "port": DB_PORT,
     "host": DB_HOST,
