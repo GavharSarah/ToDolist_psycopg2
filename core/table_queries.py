@@ -1,7 +1,7 @@
 from core.database_settings import execute_query
 
 products = """
-           CREATE TABLE IF NOT EXISTS products
+           CREATE TABLE IF NOT EXISTS TodoList1
            (
                id       SERIAL PRIMARY KEY,
                name     VARCHAR(64)  NOT NULL UNIQUE,
