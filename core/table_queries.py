@@ -1,6 +1,6 @@
 from core.database_settings import execute_query
 
-products = """
+TodoList1= """
            CREATE TABLE IF NOT EXISTS TodoList1
            (
                id       SERIAL PRIMARY KEY,
@@ -12,4 +12,4 @@ products = """
 
 
 def initializing_tables():
-    execute_query(query=products)
+    execute_query(query=TodoList1)
