@@ -1,25 +1,27 @@
 from core.database_settings import execute_query
 
 def add_task(name, quantity):
-    query = f"""
+    query = """
     INSERT INTO TodoList1 (name, quantity)
-    VALUES ('{name}', '{quantity}')
+    VALUES (%s, %s)
     """
-    execute_query(query)
+    execute_query(query, params=(name, quantity))
     print("Task added successfully!")
 
 def mark_task_complete(name):
-    query = f"""
-    UPDATE TodoList1 SET status = TRUE WHERE name = '{name}'
+    query = """
+    UPDATE TodoList1 SET status = TRUE WHERE name = %s
     """
-    execute_query(query)
+    execute_query(query, params=(name,))
     print(f"Task '{name}' marked as complete!")
 
 def view_tasks():
     query = "SELECT * FROM TodoList1"
-    execute_query(query)
+    tasks = execute_query(query, fetch="all")
+    
+    if tasks:
+        for task in tasks:
+            print(f"ID: {task[0]}, Name: {task[1]}, Details: {task[2]}, Completed: {'done' if task[3] else 'not done'}")
+    else:
+        print("No tasks found.")
 
-if __name__ == "__main__":
-    add_task("Finish backend project", "Complete API integration")
-    mark_task_complete("Finish backend project")
-    view_tasks()
