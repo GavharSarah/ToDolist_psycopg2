@@ -1,3 +1,4 @@
+
 from core.database_settings import execute_query
 from core.table_queries import initializing_tables
 
